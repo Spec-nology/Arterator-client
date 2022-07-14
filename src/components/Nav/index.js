@@ -1,19 +1,26 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 const Nav = () => {
-  // const navigate = useNavigate;
-
   return (
     <nav>
-      <NavLink className="new-prompt-link" to="/">
+      <NavLink
+        className={({ isActive }) => (isActive ? "link active" : "link")}
+        to="/"
+      >
         New Prompt
       </NavLink>
-      <NavLink className="random-prompt-link" to="/randomprompts">
+      <NavLink
+        className={({ isActive }) => (isActive ? "link active" : "link")}
+        to="/randomprompts"
+      >
         Random prompts
       </NavLink>
-      <NavLink className="about-link" to="/about">
+      <NavLink
+        className={({ isActive }) => (isActive ? "link active" : "link")}
+        to="/about"
+      >
         About
       </NavLink>
     </nav>
