@@ -6,9 +6,6 @@ import "./style.css";
 const PromptResult = () => {
   const location = useLocation();
   const [prompt, setPrompt] = useState(null);
-  const { style, medium, mood, subject } = location.state.formData;
-  // const colorPalette = location.state.formData["color palette"];
-  // TO DO this page breaks when we navigate to it directly
 
   useEffect(() => {
     const getData = async () => {

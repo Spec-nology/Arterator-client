@@ -8,12 +8,15 @@ nav {
 }
 
 a {
- margin: 10px;
- text-decoration: none;
- font-family:'Open sans', sans-serif;
+  margin: 10px;
+  text-decoration: none;
+  font-family: "Open sans", sans-serif;
 }
 
 a:visited {
   color: inherit;
 }
 
+.active {
+  text-decoration: underline #c74646 2px;
+}
