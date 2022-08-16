@@ -20,10 +20,8 @@ const RandomPrompts = () => {
       } catch (error) {
         setErrorMessage("There was an error getting your random image");
       }
-      // const response = await axios.get(imagesURL);
-      // const data = await response.data;
+
       // console.log(data.urls);
-      // setRandomImage(data.urls.thumb);
     };
     getData();
   }, []);
@@ -44,8 +42,17 @@ const RandomPrompts = () => {
 
   return (
     <>
-      {randomImage && <RandomImage image={randomImage} />}
-      {randomWord && <RandomWord word={randomWord} />}
+      <h2>Random Prompts</h2>
+      <p className="randoms-description">
+        Looking for a quick prompt to kick off your creative flow? Try out one
+        (or all!) of the categories below to get a different type of random
+        prompt. Use it for anything from quick sketch practise to ideation for
+        big art pieces and everything in between!
+      </p>
+      <div className="randoms-container">
+        {randomImage && <RandomImage image={randomImage} />}
+        {randomWord && <RandomWord word={randomWord} />}
+      </div>
     </>
   );
 };

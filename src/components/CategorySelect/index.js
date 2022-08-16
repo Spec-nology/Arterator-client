@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./style.css";
 
 const CategorySelect = ({ category, onChange }) => {
-  const [value, setValue] = useState("default");
-
   return (
     <>
       <label>{category.categoryname}</label>
@@ -12,7 +10,10 @@ const CategorySelect = ({ category, onChange }) => {
         defaultValue="default"
         onChange={onChange}
       >
-        <option value="default"> Please select</option>
+        <option value="default" disabled={true}>
+          {" "}
+          Please select
+        </option>
         {category.tags.map((tag, index) => (
           <option key={index}>{tag}</option>
         ))}
