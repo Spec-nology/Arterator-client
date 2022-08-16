@@ -9,9 +9,9 @@ const serverURL =
 
 const PromptForm = () => {
   const [categoryData, setCategoryData] = useState([]);
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
-  // const [button, setButton] = useState();
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -24,25 +24,29 @@ const PromptForm = () => {
   useEffect(() => {
     let output = {};
     categoryData.forEach((i) => {
-      output[i.categoryname] = i.tags[0];
+      output[i.categoryname] = null;
       console.log(output);
     });
     setFormData(output);
   }, [categoryData]);
 
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormData(formData);
+
     navigate("/promptresult", {
       state: {
         formData,
       },
     });
   };
+
+  useEffect(() => {
+    const values = Object.values(formData);
+    if (!values.includes(null) && values.length > 0) {
+      setButtonDisabled(false);
+    }
+  }, [formData]);
 
   const updateSelection = (e) => {
     console.log(e.target.id);
@@ -61,7 +65,7 @@ const PromptForm = () => {
                 onChange={updateSelection}
               />
             ))}
-            <button> get prompt </button>
+            <button disabled={buttonDisabled}>get prompt</button>
           </form>
         ) : (
           <h1>Loading...</h1>
