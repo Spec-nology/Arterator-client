@@ -1,11 +1,11 @@
 import React from "react";
-import "./style.css";
+import Style from "./style.module.css";
 
 const RandomImage = ({ image }) => {
   return (
     <>
-      <div className="image">
-        <h3>Random Image</h3>
+      <div className={Style.image}>
+        <h2>Random Image</h2>
         <img src={image} />
       </div>
     </>

@@ -16,7 +16,7 @@ h2 {
   text-align: center;
 }
 
-.randoms-description {
+.randomsDescription {
   margin: 20px auto;
   border: 2px solid black;
   display: flex;
@@ -26,12 +26,12 @@ h2 {
   /* overflow: auto; */
 }
 
-.randoms-description p {
+.randomsDescription p {
   margin: 0;
   padding: 20px;
 }
 
-.randoms-container {
+.randomsContainer {
   /* width: 840px; */
   margin: 0 auto;
   display: flex;
@@ -41,7 +41,11 @@ h2 {
   gap: 10px 20px;  */
 }
 
-@media screen and (min-width: 620px) {
+@media screen and (max-width: 620px) {
+  .randomsContainer {
+    flex-direction: column;
+    padding: 0 10px;
+  }
 }
 
 @media screen and (min-width: 960px) {

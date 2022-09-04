@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RandomImage, RandomWord } from "../../components";
 import axios from "axios";
-import "./style.css";
+import Styles from "./style.module.css";
 
 const imagesURL =
   "https://api.unsplash.com/photos/random?client_id=KlqKTIHfc9rS-ilCMxEZx_0-XF5g8PKXySEU5IiCVOM";
@@ -43,7 +43,7 @@ const RandomPrompts = () => {
   return (
     <>
       <h2>Random Prompts</h2>
-      <div className="randoms-description">
+      <div className={Styles.randomsDescription}>
         <p>
           Looking for a quick prompt to kick off your creative flow? Try out one
           (or all!) of the categories below to get a different type of random
@@ -51,7 +51,7 @@ const RandomPrompts = () => {
           big art pieces and everything in between!
         </p>
       </div>
-      <div className="randoms-container">
+      <div className={Styles.randomsContainer}>
         {randomImage && <RandomImage image={randomImage} />}
         {randomWord && <RandomWord word={randomWord} />}
       </div>
