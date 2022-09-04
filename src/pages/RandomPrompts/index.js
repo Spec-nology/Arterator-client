@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { RandomImage, RandomWord } from "../../components";
+import { RandomImage, RandomWord, Card } from "../../components";
 import axios from "axios";
-import "./style.css";
+import Styles from "./style.module.css";
 
 const imagesURL =
   "https://api.unsplash.com/photos/random?client_id=KlqKTIHfc9rS-ilCMxEZx_0-XF5g8PKXySEU5IiCVOM";
@@ -43,15 +43,19 @@ const RandomPrompts = () => {
   return (
     <>
       <h2>Random Prompts</h2>
-      <p className="randoms-description">
-        Looking for a quick prompt to kick off your creative flow? Try out one
-        (or all!) of the categories below to get a different type of random
-        prompt. Use it for anything from quick sketch practise to ideation for
-        big art pieces and everything in between!
-      </p>
-      <div className="randoms-container">
-        {randomImage && <RandomImage image={randomImage} />}
-        {randomWord && <RandomWord word={randomWord} />}
+      <div className={Styles.randomsDescription}>
+        <p>
+          Looking for a quick prompt to kick off your creative flow? Try out one
+          (or all!) of the categories below to get a different type of random
+          prompt. Use it for anything from quick sketch practise to ideation for
+          big art pieces and everything in between!
+        </p>
+      </div>
+      <div className={Styles.randomsContainer}>
+        {randomImage && (
+          <Card title="Random Image" child={<img src={randomImage} />} />
+        )}
+        {randomWord && <Card title="Random Word" child={<p>{randomWord}</p>} />}
       </div>
     </>
   );
